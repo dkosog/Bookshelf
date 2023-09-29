@@ -34,3 +34,4 @@ D:\repos\Bookshelf\Bookshelf\bin\Debug\net7.0-windows\runtimes\unix\lib\netcorea
 D:\repos\Bookshelf\Bookshelf\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\repos\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\Bookshelf.csproj.AssemblyReference.cache
 D:\repos\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\Bookshelf.csproj.CopyComplete
+D:\repos\Bookshelf\Bookshelf\bin\Debug\net7.0-windows\dbase.db

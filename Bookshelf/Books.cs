@@ -8,6 +8,15 @@ namespace Bookshelf
 {
     internal class Books
     {
+        public Books(int id, string author, string title, string filename)
+        {
+            Id = id;
+            Author = author;
+            Title = title;
+            FileName = filename;
+        
+        }
+        
         private int id;
         private string? author;
         private string? title;

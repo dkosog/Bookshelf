@@ -9,15 +9,15 @@
     <Grid x:Name="MainG" Background="White" Margin="10,40,10,10">
         <DataGrid x:Name="MainDG" Margin="80,10,10,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden"/>
-                <DataGridTextColumn Header="Author" Width="180" FontFamily="Arial"/>
-                <DataGridTextColumn Header="Title" Width="*" FontFamily="Arial"/>
-                <DataGridTextColumn Header="FileName" Width="100" FontFamily="Arial"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="20"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="180"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
+                <DataGridTextColumn Header="FileName" Binding="{Binding FileName}" Width="100"/>
               
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name ="bt_Add" Content="Добавить" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70"/>
-        <Button Name ="bt_Del" Content="Удалить" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button Name ="bt_Add" Content="Добавить" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Click="bt_Add_Click"/>
+        <Button Name ="bt_Del" Content="Удалить" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="70" Click="bt_Del_Click"/>
 
     </Grid>
 </Window>
