@@ -16,7 +16,17 @@ namespace Bookshelf
             FileName = filename;
         
         }
-        
+
+        public Books(int id, string author, string title, string filename, byte[] filedata)
+        {
+            Id = id;
+            Author = author;
+            Title = title;
+            FileName = filename;
+            FileData = filedata;
+
+        }
+
         private int id;
         private string? author;
         private string? title;

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookshelf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" FontSize="14" FontFamily="Tahoma">
     <Grid x:Name="MainG" Background="White" Margin="10,40,10,10">
-        <DataGrid x:Name="MainDG" Margin="80,10,10,10" AutoGenerateColumns="False">
+        <DataGrid x:Name="MainDG" Margin="80,10,10,10" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="20"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="180"/>

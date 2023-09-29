@@ -43,7 +43,10 @@ namespace Bookshelf
 
         private void bt_Add_Click(object sender, RoutedEventArgs e)
         {
-            DbHelper.CreateDB();
+            //DbHelper.CreateDB();
+            byte[] bb = { 0, 1 };
+            DbHelper.AddBooks("added_author", "add_book", "", bb);
+            ReloadDG();
         }
 
         private void bt_Del_Click(object sender, RoutedEventArgs e)
@@ -51,8 +54,13 @@ namespace Bookshelf
             int result = MainDG.Items.IndexOf(MainDG.SelectedCells[0].Item);
             
             MessageBox.Show(result.ToString());
+        }
 
-
+        private void ReloadDG()
+        {
+            List<Books> books = new List<Books>();
+            books = DbHelper.GetBooks();
+            MainDG.ItemsSource = books;
         }
     }
 }

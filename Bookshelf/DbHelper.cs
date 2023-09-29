@@ -58,7 +58,7 @@ namespace Bookshelf
                 using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
                 {
                     con.Open();
-                    using (SQLiteCommand cmd = new SQLiteCommand(@"SELECT Id, Author, Title, FileName FROM TB_BOOKS;", con))
+                    using (SQLiteCommand cmd = new SQLiteCommand(@"SELECT Id, Author, Title, FileName, FileData FROM TB_BOOKS;", con))
                     {
                         using (var rdr = cmd.ExecuteReader())
                         {
@@ -69,8 +69,9 @@ namespace Bookshelf
                                 var author = rdr.GetString(1);
                                 var title = rdr.GetString(2);
                                 var filename = rdr.GetString(3);
+                                byte[] filedata = (byte[])rdr.GetValue(4);
 
-                                Books bk = new Books(id, author, title, filename);
+                                Books bk = new Books(id, author, title, filename, filedata);
                                 books.Add(bk);
 
                             }
@@ -79,13 +80,42 @@ namespace Bookshelf
                     }
 
                 }
-
-
             }
             catch (Exception ex)
             { 
                 MessageBox.Show(ex.Message);
-                return null;
+                return new List<Books>();
+            }
+        }
+
+        internal static void AddBooks(string author, string title, string filename, byte[] filedata)
+        {
+            //if (!File.Exists(pathDB)) 
+            //{
+            //CreateDB();
+            //}
+            try
+            {
+                List<Books> books = new List<Books>();
+                using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
+                {
+                    con.Open();
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = @"INSERT INTO TB_BOOKS (Author, Title, FileName, FileData)
+                                                    VALUES (@Author, @Title, @FileName, @FileData)";
+                    cmd.Parameters.Add(new SQLiteParameter("@Author", author));
+                    cmd.Parameters.Add(new SQLiteParameter("@Title", title));
+                    cmd.Parameters.Add(new SQLiteParameter("@FileName", filename));
+                    cmd.Parameters.Add(new SQLiteParameter("@FileData", filedata));
+                    int number = cmd.ExecuteNonQuery();
+                    MessageBox.Show(number.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
