@@ -72,3 +72,5 @@ C:\PROJECTS\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\refint\Bookshelf.dll
 C:\PROJECTS\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\Bookshelf.pdb
 C:\PROJECTS\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\Bookshelf.genruntimeconfig.cache
 C:\PROJECTS\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\ref\Bookshelf.dll
+D:\repos\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\WAddBook.g.cs
+D:\repos\Bookshelf\Bookshelf\obj\Debug\net7.0-windows\WAddBook.baml

@@ -47,10 +47,13 @@ namespace Bookshelf
 
         private void bt_Add_Click(object sender, RoutedEventArgs e)
         {
-            //DbHelper.CreateDB();
-            byte[] bb = { 0, 1 };
-            DbHelper.AddBooks("added_author", "add_book", "", bb);
-            ReloadDG();
+            ////DbHelper.CreateDB();
+            //byte[] bb = { 0, 1 };
+            //DbHelper.AddBooks("added_author", "add_book", "", bb);
+            //ReloadDG();
+            WAddBook wAddBook= new WAddBook();
+            wAddBook.Owner = this;
+            wAddBook.Show();
         }
 
         private void bt_Del_Click(object sender, RoutedEventArgs e)
