@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,6 @@ namespace Bookshelf
             Title = title;
             FileName = filename;
             FileData = filedata;
-
         }
 
         private int id;
@@ -62,6 +62,8 @@ namespace Bookshelf
             get { return fileData; }
             set {  fileData = value; }
         }
-
+        
+        //public ObservableCollection<Books> Obooks { get; set; }
+        
     }
 }

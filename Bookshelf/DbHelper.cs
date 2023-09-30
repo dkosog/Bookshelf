@@ -109,7 +109,34 @@ namespace Bookshelf
                     cmd.Parameters.Add(new SQLiteParameter("@FileName", filename));
                     cmd.Parameters.Add(new SQLiteParameter("@FileData", filedata));
                     int number = cmd.ExecuteNonQuery();
-                    MessageBox.Show(number.ToString());
+                    MessageBox.Show("Добавлено записей: " + number.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        internal static void DelBooks(int id)
+        {
+            //if (!File.Exists(pathDB)) 
+            //{
+            //CreateDB();
+            //}
+            try
+            {
+                List<Books> books = new List<Books>();
+                using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
+                {
+                    con.Open();
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = @"DELETE FROM TB_BOOKS WHERE ID=@Id";
+                    cmd.Parameters.Add(new SQLiteParameter("@Id", id));
+                    int number = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Удалено записей: " + number.ToString());
                 }
             }
             catch (Exception ex)
