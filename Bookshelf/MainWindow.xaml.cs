@@ -53,7 +53,7 @@ namespace Bookshelf
             //ReloadDG();
             WAddBook wAddBook= new WAddBook();
             wAddBook.Owner = this;
-            wAddBook.Show();
+            wAddBook.ShowDialog();
         }
 
         private void bt_Del_Click(object sender, RoutedEventArgs e)
@@ -76,7 +76,7 @@ namespace Bookshelf
             
         }
 
-        private void ReloadDG()
+        public void ReloadDG()
         {
             
             Obooks.Clear();

@@ -12,7 +12,7 @@
         <TextBox x:Name ="tb_Author" Margin="10,0,10,0"/>
         <Label x:Name ="l_Title" Content="Название книги:" Margin="10,10,10,0"/>
         <TextBox Name ="tb_Title" Margin="10,0,10,0"/>
-        <Button Name ="bt_Add_Book" Content="Добавить книгу" Margin="10,10,10,0"/>
+        <Button Name ="bt_Add_Book" Content="Добавить книгу" Margin="10,10,10,0" Click="bt_Add_Book_Click"/>
         <Button Name ="bt_Add_File" Content="Загрузить файл книги" Margin="10,10,10,0"/>
         <Button Name ="bt_Cancel" Content="Отмена" Margin="10,10,10,0" Click="bt_Cancel_Click" />
 

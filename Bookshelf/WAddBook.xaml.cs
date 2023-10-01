@@ -22,10 +22,21 @@ namespace Bookshelf
         public WAddBook()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
         private void bt_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void bt_Add_Book_Click(object sender, RoutedEventArgs e)
+        {
+            string author = tb_Author.Text + "";
+            string title = tb_Title.Text + "";
+            string filename = "none";
+            byte[] filedata = { 0, 1 };
+            DbHelper.AddBooks(author, title, filename, filedata);
             this.Close();
         }
     }
