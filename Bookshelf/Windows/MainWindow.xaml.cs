@@ -23,6 +23,8 @@ namespace Bookshelf
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new ApplicationViewModel();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
