@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,24 @@ namespace Bookshelf
 {
     internal class Books
     {
+        public Books(int id, string author, string title, string filename)
+        {
+            Id = id;
+            Author = author;
+            Title = title;
+            FileName = filename;
+        
+        }
+
+        public Books(int id, string author, string title, string filename, byte[] filedata)
+        {
+            Id = id;
+            Author = author;
+            Title = title;
+            FileName = filename;
+            FileData = filedata;
+        }
+
         private int id;
         private string? author;
         private string? title;
@@ -43,6 +62,8 @@ namespace Bookshelf
             get { return fileData; }
             set {  fileData = value; }
         }
-
+        
+        //public ObservableCollection<Books> Obooks { get; set; }
+        
     }
 }

@@ -1,0 +1,20 @@
+﻿<Window x:Class="Bookshelf.WAddBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bookshelf"
+        mc:Ignorable="d"
+        Title="Добавление книги" Height="260" Width="300" WindowStartupLocation="CenterScreen" FontSize="14" FontFamily="Tahoma">
+    
+    <StackPanel Margin="10">
+        <Label x:Name ="l_Author" Content="Автор книги:" Margin="10,0,10,0"/>
+        <TextBox x:Name ="tb_Author" Margin="10,0,10,0"/>
+        <Label x:Name ="l_Title" Content="Название книги:" Margin="10,10,10,0"/>
+        <TextBox Name ="tb_Title" Margin="10,0,10,0"/>
+        <Button Name ="bt_Add_Book" Content="Добавить книгу" Margin="10,10,10,0" Click="bt_Add_Book_Click"/>
+        <Button Name ="bt_Add_File" Content="Загрузить файл книги" Margin="10,10,10,0"/>
+        <Button Name ="bt_Cancel" Content="Отмена" Margin="10,10,10,0" Click="bt_Cancel_Click" />
+
+    </StackPanel>
+</Window>
