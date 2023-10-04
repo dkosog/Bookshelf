@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookshelf"
         mc:Ignorable="d"
-        Title="Добавление книги" Height="260" Width="300" WindowStartupLocation="CenterScreen" FontSize="14" FontFamily="Tahoma">
-    
-    <StackPanel Margin="10">
+        Title="Добавление книги" Height="3000" Width="300" WindowStartupLocation="CenterScreen" FontSize="14" FontFamily="Tahoma">
+
+    <StackPanel x:Name="SP" Margin="10" DataContext="{StaticResource fp}">
         <Label x:Name ="l_Author" Content="Автор книги:" Margin="10,0,10,0"/>
         <TextBox x:Name ="tb_Author" Margin="10,0,10,0"/>
         <Label x:Name ="l_Title" Content="Название книги:" Margin="10,10,10,0"/>
-        <TextBox Name ="tb_Title" Margin="10,0,10,0"/>
+        <TextBox x:Name ="tb_Title" Margin="10,0,10,0"/>
+        <TextBlock x:Name ="f_Path" Margin="10,10,10,0"/>
         <Button Name ="bt_Add_Book" Content="Добавить книгу" Margin="10,10,10,0" Click="bt_Add_Book_Click"/>
         <Button Name ="bt_Add_File" Content="Загрузить файл книги" Margin="10,10,10,0"/>
         <Button Name ="bt_Cancel" Content="Отмена" Margin="10,10,10,0" Click="bt_Cancel_Click" />

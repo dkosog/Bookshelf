@@ -46,7 +46,7 @@ namespace Bookshelf
             }
         }
 
-        internal static List<Books> GetBooks()
+        internal static List<Book> GetBooks()
         {
             //if (!File.Exists(pathDB)) 
             //{
@@ -54,7 +54,7 @@ namespace Bookshelf
             //}
             try
             {
-                List<Books> books = new List<Books>();
+                List<Book> books = new List<Book>();
                 using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
                 {
                     con.Open();
@@ -71,7 +71,7 @@ namespace Bookshelf
                                 var filename = rdr.GetString(3);
                                 byte[] filedata = (byte[])rdr.GetValue(4);
 
-                                Books bk = new Books(id, author, title, filename, filedata);
+                                Book bk = new Book { Id=id, Author=author, Title = title, FileName = filename, FileData = filedata };
                                 books.Add(bk);
 
                             }
@@ -84,11 +84,12 @@ namespace Bookshelf
             catch (Exception ex)
             { 
                 MessageBox.Show(ex.Message);
-                return new List<Books>();
+                return new List<Book>();
             }
         }
 
-        internal static void AddBooks(string author, string title, string filename, byte[] filedata)
+        //internal static void AddBooks(string author, string title, string filename, byte[] filedata)
+            internal static void AddBooks(Book book)
         {
             //if (!File.Exists(pathDB)) 
             //{
@@ -96,7 +97,7 @@ namespace Bookshelf
             //}
             try
             {
-                List<Books> books = new List<Books>();
+                List<Book> books = new List<Book>();
                 using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
                 {
                     con.Open();
@@ -104,10 +105,10 @@ namespace Bookshelf
                     cmd.Connection = con;
                     cmd.CommandText = @"INSERT INTO TB_BOOKS (Author, Title, FileName, FileData)
                                                     VALUES (@Author, @Title, @FileName, @FileData)";
-                    cmd.Parameters.Add(new SQLiteParameter("@Author", author));
-                    cmd.Parameters.Add(new SQLiteParameter("@Title", title));
-                    cmd.Parameters.Add(new SQLiteParameter("@FileName", filename));
-                    cmd.Parameters.Add(new SQLiteParameter("@FileData", filedata));
+                    cmd.Parameters.Add(new SQLiteParameter("@Author", book.Author));
+                    cmd.Parameters.Add(new SQLiteParameter("@Title", book.Title));
+                    cmd.Parameters.Add(new SQLiteParameter("@FileName", book.FileName));
+                    cmd.Parameters.Add(new SQLiteParameter("@FileData", book.FileData));
                     int number = cmd.ExecuteNonQuery();
                     MessageBox.Show("Добавлено записей: " + number.ToString());
                 }
@@ -127,7 +128,7 @@ namespace Bookshelf
             //}
             try
             {
-                List<Books> books = new List<Books>();
+                List<Book> books = new List<Book>();
                 using (SQLiteConnection con = new SQLiteConnection(string.Format($"Data source={pathDB};")))
                 {
                     con.Open();

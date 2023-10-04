@@ -6,18 +6,32 @@
         xmlns:local="clr-namespace:Bookshelf"
         mc:Ignorable="d"
         Title="Библиотека" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" FontSize="14" FontFamily="Tahoma">
-    <Grid x:Name="MainG" Background="White" Margin="10,40,10,10">
-        <DataGrid x:Name="MainDG" Margin="80,10,10,10" AutoGenerateColumns="False" IsReadOnly="True">
+    <Grid x:Name="MainG" Background="White" Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="190"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="SP1" Grid.Column="1"  Margin="10"  DataContext="{Binding SelectedBook}">
+            <TextBlock Text=" Выбранный элемент: "  />
+            <TextBlock Text="Id " />
+            <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}"  />
+            <TextBlock Text=" Автор " />
+            <TextBox Text="{Binding Author, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text=" Наименование " />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text=" Файл " />
+            <TextBox Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Name ="bt_Add" Content="Добавить"  Margin="0,10,0,10"  Click="bt_Add_Click"/>
+            <Button Name ="bt_Del" Content="Удалить" Margin="0,10,0,10"   Click="bt_Del_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="MainDG" Grid.Column="0" Margin="10,10,10,10" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Books}"
+                 SelectedItem="{Binding SelectedBook}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="25"/>
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="180"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="100"/>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
                 <DataGridTextColumn Header="FileName" Binding="{Binding FileName}" Width="100"/>
-              
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name ="bt_Add" Content="Добавить" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="70" Click="bt_Add_Click"/>
-        <Button Name ="bt_Del" Content="Удалить" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="70" Click="bt_Del_Click"/>
-
-    </Grid>
+      </Grid>
 </Window>
