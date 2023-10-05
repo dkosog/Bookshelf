@@ -32,7 +32,7 @@ namespace Bookshelf
         private string? author;
         private string? title;
         private string? filename;
-        private byte[]? filedata;
+        //private byte[]? filedata;
 
         public int Id
         { 
@@ -74,15 +74,15 @@ namespace Bookshelf
             }
         }
         
-        public byte[]? FileData 
-        { 
-            get { return filedata; }
-            set 
-            {  
-                filedata = value;
-                OnPropertyChanged("FileData");
-            }
-        }
+        //public byte[]? FileData 
+        //{ 
+        //    get { return filedata; }
+        //    set 
+        //    {  
+        //        filedata = value;
+        //        OnPropertyChanged("FileData");
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -69,9 +69,9 @@ namespace Bookshelf
                                 var author = rdr.GetString(1);
                                 var title = rdr.GetString(2);
                                 var filename = rdr.GetString(3);
-                                byte[] filedata = (byte[])rdr.GetValue(4);
+                                //byte[] filedata = (byte[])rdr.GetValue(4);
 
-                                Book bk = new Book { Id=id, Author=author, Title = title, FileName = filename, FileData = filedata };
+                                Book bk = new Book { Id=id, Author=author, Title = title, FileName = filename };
                                 books.Add(bk);
 
                             }
@@ -103,12 +103,12 @@ namespace Bookshelf
                     con.Open();
                     SQLiteCommand cmd = new SQLiteCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = @"INSERT INTO TB_BOOKS (Author, Title, FileName, FileData)
-                                                    VALUES (@Author, @Title, @FileName, @FileData)";
+                    cmd.CommandText = @"INSERT INTO TB_BOOKS (Author, Title, FileName)
+                                                    VALUES (@Author, @Title, @FileName)";
                     cmd.Parameters.Add(new SQLiteParameter("@Author", book.Author));
                     cmd.Parameters.Add(new SQLiteParameter("@Title", book.Title));
                     cmd.Parameters.Add(new SQLiteParameter("@FileName", book.FileName));
-                    cmd.Parameters.Add(new SQLiteParameter("@FileData", book.FileData));
+                    //cmd.Parameters.Add(new SQLiteParameter("@FileData", book.FileData));
                     int number = cmd.ExecuteNonQuery();
                     MessageBox.Show("Добавлено записей: " + number.ToString());
                 }

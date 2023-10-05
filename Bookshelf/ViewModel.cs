@@ -15,6 +15,7 @@ namespace Bookshelf
         public ObservableCollection<Book> Books { get; set; }
         private RelayCommand addCommand;
         private byte[] bb = {0,1};
+        
         public RelayCommand AddCommand
         {
             get
@@ -44,9 +45,9 @@ namespace Bookshelf
         {
             Books = new ObservableCollection<Book>
             { 
-                new Book { Id = 1, Author = "Au11", Title = "tt1", FileName = "none", FileData = bb },
-                new Book { Id = 2, Author = "Au22", Title = "tt22", FileName = "none", FileData = bb },
-                new Book { Id = 3, Author = "Au311", Title = "tt331", FileName = "none", FileData = bb }
+                new Book { Id = 1, Author = "Au11", Title = "tt1", FileName = "none" },
+                new Book { Id = 2, Author = "Au22", Title = "tt22", FileName = "none"},
+                new Book { Id = 3, Author = "Au311", Title = "tt331", FileName = "none" }
 
                 };
 
